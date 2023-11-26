@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Collaborateurs</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <!-- Your existing layout or menu code here -->
+
+            <h:panelGroup id="content">
+                <h:panelGroup rendered="#{facesContext.viewRoot.viewId.endsWith('collaborateurs.xhtml')}">
+                    <!-- Contenu de la page Collaborateurs par Service -->
+                    <!-- Ajoutez ici la logique pour afficher les collaborateurs d'un service -->
+                    <!-- Utilisez le composant p:dataTable pour afficher la liste des collaborateurs -->
+
+                    <p:dataTable var="collaborateur" value="#{serviceBean.collaborateurs}" 
+                                 emptyMessage="Aucun collaborateur trouvé" 
+                                 paginator="true" rows="10">
+                        <!-- Display columns for collaborator information -->
+                        <p:column headerText="Nom">
+                            <h:outputText value="#{collaborateur.nom}" />
+                        </p:column>
+                        <p:column headerText="Prénom">
+                            <h:outputText value="#{collaborateur.prenom}" />
+                        </p:column>
+                        <p:column headerText="Poste">
+                            <h:outputText value="#{collaborateur.poste}" />
+                        </p:column>
+                        <!-- Add more columns as needed -->
+
+                        <!-- Example: Display chief of service -->
+                        <p:column headerText="Chef de Service">
+                            <h:outputText value="#{serviceBean.serviceChief.nom} #{serviceBean.serviceChief.prenom}" />
+                        </p:column>
+                    </p:dataTable>
+                </h:panelGroup>
+            </h:panelGroup>
+
+            <!-- Other content or forms as needed -->
+        </h:form>
+    </h:body>
+</html>

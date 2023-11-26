@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Gestion des Employés</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                <h:form>
+                    <p:panelGrid columns="4">
+                        <p:clock pattern="dd/MM/yyyy" />
+                        <p:clock pattern="hh:mm:ss " />
+                        <p:outputLabel value="Bien venu dans le systeme du management"/>
+                        <p:calendar id="cal"  navigator="true" />
+                    </p:panelGrid>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                <h:outputText value="© 2023 Employee Management System" style="font-weight: bold;"/>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="250" header="Menu" collapsible="true">
+                <h:form>
+                    <p:menu>
+                        <p:submenu label="Navigations">
+                            <p:menuitem value="Gérer les Employés" outcome="collaborateurs.xhtml" icon="ui-icon-star"/>
+                            <p:menuitem value="Ajouter un Employé" outcome="ajoutEmploye.xhtml" icon="ui-icon-star"/>
+                            <p:menuitem value="Collaborateurs par Service" outcome="services.xhtml" icon="ui-icon-star"/>
+                        </p:submenu>
+                    </p:menu>
+
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <!-- Contenu spécifique à afficher en fonction de la page sélectionnée -->
+                
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+    <h:panelGroup id="content">
+    <!-- Utilisez le rendu conditionnel pour afficher le contenu spécifique à chaque page -->
+    <ui:include src="/collaborateurs.xhtml" />
+    <ui:include src="/ajoutEmploye.xhtml" />
+    <ui:include src="/services.xhtml" />
+</h:panelGroup>
+
+</html>

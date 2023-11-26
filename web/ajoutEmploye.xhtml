@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ajout d'un Employé</title>
+    </h:head>
+    <h:body>
+        <h1>Ajout d'un Employé</h1>
+
+        <!-- Formulaire pour ajouter un employé -->
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel for="nom" value="Nom" />
+                <p:inputText id="nom" value="#{employeBean.employes.nom}" />
+
+                <p:outputLabel for="prenom" value="Prénom" />
+                <p:inputText id="prenom" value="#{employeBean.employes.prenom}" />
+
+                <p:outputLabel for="dateNaissance" value="Date de Naissance" />
+                <p:calendar id="dateNaissance" value="#{employeBean.employes.dateNaissance}" />
+
+                <p:outputLabel for="chef" value="Chef" />
+                <p:inputText id="chef" value="#{employeBean.employes.chef}" />
+
+                <p:outputLabel for="service" value="Service" />
+                <p:inputText id="service" value="#{employeBean.employes.service}" />
+
+                <p:outputLabel for="photo" value="Photo" />
+                <p:fileUpload id="photo" value="#{employeBean.employes.photo}" />
+
+                <!-- Ajoutez d'autres champs pour les informations de l'employé -->
+
+                <p:commandButton value="Ajouter" action="#{employeBean.addEmploye}" />
+            </p:panelGrid>
+        </h:form>
+
+    </h:body>
+</html>
